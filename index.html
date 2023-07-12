@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Device-Specific Links</title>
+        <script>
+        function openLink(projectNumber) {
+            var link;
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // Check if the user agent string contains 'Android' or 'iOS' to determine the device
+            if (/android/i.test(userAgent)) {
+                link = androidLinks[projectNumber - 1];
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                link = iosLinks[projectNumber - 1];
+            } else {
+                link = websiteLinks[projectNumber - 1];
+            }
+
+            
+            window.open(link, "_blank");
+        }
+    </script>
+    </head>
+    <body>
+        <h1>Project 1</h1>
+        <button onclick="openLink(1)">Open Link</button>
+
+        <h1>Project 2</h1>
+        <button onclick="openLink(2)">Open Link</button>
+
+        <h1>Project 3</h1>
+        <button onclick="openLink(3)">Open Link</button>
+
+        <h1>Project 4</h1>
+        <button onclick="openLink(4)">Open Link</button>
+
+        <h1>Project 5</h1>
+        <button onclick="openLink(5)">Open Link</button>
+
+        <script>
+    
+        var androidLinks = [
+            "https://play.google.com/store/apps/details?id=com.shortflix",
+            "https://playstore-link2.com",
+            "https://playstore-link3.com",
+            "https://playstore-link4.com",
+            "https://playstore-link5.com"
+        ];
+
+        var iosLinks = [
+            "https://apps.apple.com/in/app/shortflix/id1448385291",
+            "https://applestore-link2.com",
+            "https://applestore-link3.com",
+            "https://applestore-link4.com",
+            "https://applestore-link5.com"
+        ];
+
+        var websiteLinks = [
+            "https://www.shortflixindia.com/",
+            "https://website-link2.com",
+            "https://website-link3.com",
+            "https://website-link4.com",
+            "https://website-link5.com"
+        ];
+    </script>
+    </body>
+</html>
